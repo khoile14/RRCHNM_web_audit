@@ -86,6 +86,5 @@ filename = f"output_{timestamp}.csv"
 
 bot.run("https://rrchnm.org/our-work/", filename)
 
-for i in range(5):
-    print("hello world")
+
 
