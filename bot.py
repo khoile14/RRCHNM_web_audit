@@ -4,7 +4,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 import requests
 from datetime import datetime
-from urllib.parse import urlparse
+
 
 class Bot:
     def __init__(self):
@@ -75,8 +75,8 @@ class Bot:
 
 
 bot = Bot()
-timestamp = datetime.now().strftime("%Y-%m-%d-%H:%M:%S")
+timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
 filename = f"output_{timestamp}.csv"
 
-bot.run("https://rrchnm.org/our-work/", filename)
-#bot.run("https://rrchnm.org/essays/", filename)
+#bot.run("https://rrchnm.org/our-work/", filename)
+bot.run("https://rrchnm.org/essays/", filename)
