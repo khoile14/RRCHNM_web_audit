@@ -4,7 +4,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 import requests
 from datetime import datetime
-
+from urllib.parse import urlparse
 
 class Bot:
     def __init__(self):
@@ -36,13 +36,20 @@ class Bot:
 
         for a in main_a_elements:
             mainLink = {}
-            mainLink['href'] = a.get_attribute('href')
-            mainLink['title'] = a.get_attribute('innerText')
+            if(starting_link == "https://rrchnm.org/essays/"):
+                mainLink['href'] = a.get_attribute('href')
+                mainLink['title'] = a.get_attribute('innerText')
+            elif(starting_link == "https://rrchnm.org/our-work/"):
+                if(a.get_attribute('class') == 'qodef-e-title-link'):
+                    mainLink['href'] = a.get_attribute('href')
+                    mainLink['title'] = a.get_attribute('innerText')
+                else:
+                    continue
             main_links.append(mainLink)
         self.process_links(main_links, output_file, starting_link)
 
     def process_links(self, main_links, output_file, starting_link):
-        with open(output_file, 'w', newline='') as file:
+        with open(output_file, 'w', newline='', encoding= 'utf-8') as file:
             
             writer = csv.writer(file)
             writer.writerow(["Title", "Main Link", "Sub Link", "Status"])
@@ -54,13 +61,12 @@ class Bot:
                     continue  # Skip link without href
                 
                 self.browser.get(main_link_href)
-
+                container_elements = []
                 if(starting_link == "https://rrchnm.org/essays/"):
                     container_elements = self.browser.find_elements(By.CSS_SELECTOR, "div[data-widget_type='text-editor.default'] a")
                 elif(starting_link == "https://rrchnm.org/our-work/"):
                     container_elements = self.browser.find_elements(By.CSS_SELECTOR, "#qodef-page-content > div > div > div > article > div > div > div > div.qodef-grid-item.qodef-col--4.qodef-ps-info-sticky-holder > div.qodef-portfolio-info > div.qodef-e.qodef-info--info-items > a")
-                
-                container_links = []
+            
                 for link_element in container_elements:
 
                     container_link_href = link_element.get_attribute('href')
@@ -68,7 +74,6 @@ class Bot:
                     if not container_link_href:
                         continue  # Skip link without href
                     
-                    container_links.append(container_link_href)
                     writer.writerow([main_link_title, main_link_href, container_link_href, self.check_link(container_link_href)])  # Write link to CSV file
                     self.check_link(container_link_href)
 
