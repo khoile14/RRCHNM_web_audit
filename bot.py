@@ -14,6 +14,7 @@ class Bot:
         self.browser = webdriver.Chrome(options=chrome_options)
 
     def check_link(self, link):
+    
         try:
             response = requests.get(link, allow_redirects=True)
             if response.status_code <= 399:
@@ -23,8 +24,12 @@ class Bot:
                 print(f"The link {link} returned a status code: {response.status_code}")
                 return f"status code: {response.status_code}"
         except requests.exceptions.RequestException as e:
-            print(f"An error occurred while checking the link {link}: {e}")
-            return f"error: {e}"
+            if '%20' in link:
+                print(f"The link {link} has spaces in it.")
+                return "has spaces"
+            else:
+                print(f"An error occurred while checking the link {link}: {e}")
+                return f"error: {e}"
         
     def run(self, starting_link, output_file):
         self.browser.get(starting_link)
@@ -34,7 +39,6 @@ class Bot:
             main_a_elements = self.browser.find_elements(By.CSS_SELECTOR, "#qodef-page-content > div > div > div > section.elementor-section.elementor-top-section.elementor-element.elementor-element-dd98d8f.elementor-section-full_width.elementor-section-height-default.elementor-section-height-default.qodef-elementor-content-no > div > div > div > div > div > div > div.qodef-grid-inner.clear a")
 
         if starting_link == "https://rrchnm.org/essays/" or starting_link == "https://rrchnm.org/our-work/":
-
             main_links = []
             for a in main_a_elements:
                 mainLink = {}
@@ -58,7 +62,9 @@ class Bot:
             
             writer = csv.writer(file)
             writer.writerow(["Title", "Main Link", "Sub Link", "Status"])
-
+            #main_links = [{'href': 'https://rrchnm.org/essays/an-introduction-to-u-s-history-research-online/', 'title': ''}]
+            #main_links = [{'href': 'https://rrchnm.org/essays/can-history-be-open-source-wikipedia-and-the-future-of-the-past/', 'title': ''}]
+            main_links = [{'href': 'https://rrchnm.org/essays/scarcity-or-abundance-preserving-the-past-in-a-digital-era/', 'title': ''}]
             for link in main_links:
                 main_link_href = link["href"]
                 main_link_title = link["title"]
@@ -98,3 +104,6 @@ if __name__ == "__main__":
 
     bot.run(starting_link, output_file)
 
+'''bot = Bot()
+bot.check_link("http://www. philweavers.net/profiles/dinoginacio.html")
+bot.check_link("http://www.pinktink3. 250x.com/hmm/bert.htm")'''
