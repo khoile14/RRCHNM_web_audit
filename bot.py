@@ -8,6 +8,7 @@ import sys
 import urllib.parse
 
 
+
 class Bot:
     def __init__(self):
         chrome_options = Options()
@@ -18,8 +19,8 @@ class Bot:
         try:
             parsed_url = urllib.parse.urlparse(link)
             if '%20' in parsed_url.netloc:
-                print(f"The link {link} has spaces in the host name.")
-                return "has spaces in host name"
+                print(f"error: the link {link} has spaces in the host name.")
+                return "error: has spaces in host name"
 
             response = requests.get(link, allow_redirects=True)
             if response.status_code <= 399:
