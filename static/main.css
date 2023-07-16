@@ -1,24 +1,78 @@
-body{
+body {
+  justify-content: center;
+  padding-top: 60px;
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: 100vh; /* Set the height of the body to 100% of the viewport */
-  margin: 0; /* Remove default body margin */
-  background-color: #f0f0f0; /* Optional: Add background color to body */
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  background-color: #7c2142;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.header {
+  box-sizing: border-box;
+  padding: 0;
+  height: 60px;
+  width: 100%;
+  margin-top: -60px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.container {
+  width: 1400px;
+  height: 100%;
+  padding: 0 15px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 
-.text-input{
-  width: 500px;
+
+.title {
+  width: fit-content;
+  font-family: "Lexend Deca";
+  height: 100%;
+  display: flex;
+  color:#f4a3b4;
+  font-size: 20px;
+}
+
+
+.text-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  flex-grow: 1; /* Allow the text-input to take up the remaining vertical space */
+  justify-content: center; /* Center child elements vertically */
 }
 
 
-input[type = text]{
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 2px solid black;
-    border-radius: 4px;
+label {
+  font-size: 30px;
+  padding: 50px;
+  color: #f4a3b4;
+}
+
+textarea {
+  width: 100%;
+  min-height: 50px;
+  max-height: 400px;
+  resize: vertical;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  overflow-y: auto;
+  font-variant:no-common-ligatures ;
 }

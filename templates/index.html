@@ -6,12 +6,25 @@
     <title>Document</title>
     <link rel="stylesheet" href="static/main.css" />
   </head>
-
   <body>
+    <div class = "header">
+      <div class = "container">
+        <div class = "title">
+          <h1>Simplified Links Checker</h1>
+        </div>
+      </div>
+    </div>
     <div class="text-input">
       <form action="/bot.py">
-        <label for="links">Links</label>
-        <input type="text" id="text" name="links" placeholder="Enter links.." />
+        <label for="links">Enter Your Links Here:</label>
+        <textarea
+          type="text"
+          placeholder="example.com"
+          id="check-url"
+          name="text"
+          rows="1"
+          class="form-control"
+        ></textarea>
       </form>
     </div>
   </body>
