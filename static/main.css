@@ -40,10 +40,11 @@ body {
 .title {
   width: fit-content;
   font-family: "Lexend Deca";
-  height: 100%;
   display: flex;
-  color:#f4a3b4;
-  font-size: 20px;
+  color: #f4a3b4;
+  font-size: 15px;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -64,15 +65,70 @@ label {
 }
 
 textarea {
+  /* Your existing styles here */
   width: 100%;
   min-height: 50px;
   max-height: 400px;
   resize: vertical;
   padding: 10px;
   box-sizing: border-box;
-  border: 2px solid #ccc;
+  border: none; /* Remove the border */
   border-radius: 4px;
   font-size: 16px;
+  line-height: 2; /* Add this line to vertically center the text */
   overflow-y: auto;
-  font-variant:no-common-ligatures ;
+  font-variant: no-common-ligatures;
+  font-family: "Roboto Mono", sans-serif; /* Set the font-family */
+  background-color: #833c5e;
+  color: white;
+}
+
+textarea::placeholder {
+  color: #a29aad; /* Replace with your desired placeholder color */
+  line-height: 2; /* Add this line to vertically center the placeholder text */
+}
+
+
+textarea::placeholder{
+  color: #9994b8;
+}
+
+/* Define the variable for border-radius */
+:root {
+  --roundness: 15px;
+}
+
+/* CSS styles for the submission button */
+/* Define the base styles for the button */
+:root {
+  --roundness: 15px;
+}
+
+/* CSS styles for the submission button */
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 100%;
+}
+
+/* Add hover effect */
+.button1 {
+  background-color: #833c5e; 
+  color: white; 
+  border-radius: 10px;
+}
+
+.button1:hover {
+  background-color: white;
+  color: #833c5e;
 }
