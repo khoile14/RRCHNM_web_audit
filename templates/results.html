@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel="stylesheet" href="static/main.css" />
+</head>
+<body>
+    <div class="content">
+        <h2>Results</h2>
+        <table>
+            <tr>
+                <th>Link</th>
+                <th>Status</th>
+            </tr>
+            {% for result in results %}
+            <tr>
+                <td>{{ result.link }}</td>
+                <td>{{ result.status }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="/" class="button">Back</a>
+    </div>
+</body>
+</html>

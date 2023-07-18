@@ -105,8 +105,8 @@ textarea::placeholder{
 }
 
 /* CSS styles for the submission button */
-.button {
-  background-color: #4CAF50; /* Green */
+.button_submit {
+  background-color: #833c5e; /* Green */
   border: none;
   color: white;
   padding: 16px 32px;
@@ -122,13 +122,51 @@ textarea::placeholder{
 }
 
 /* Add hover effect */
-.button1 {
-  background-color: #833c5e; 
-  color: white; 
-  border-radius: 10px;
+.button_submit:hover {
+  background-color: white;
+  color: #833c5e;
 }
 
-.button1:hover {
+.content {
+  margin: 0 auto;
+  width: 400px;
+}
+
+table, td, th {
+  border: 1px solid #aaa;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  height: 30px;
+}
+
+td {
+  text-align: center;
+  padding: 5px;
+}
+
+.button {
+  background-color: #833c5e; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.button:hover {
   background-color: white;
   color: #833c5e;
 }
