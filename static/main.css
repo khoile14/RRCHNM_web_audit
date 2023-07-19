@@ -35,8 +35,6 @@ body {
   margin-left: auto;
 }
 
-
-
 .title {
   width: fit-content;
   font-family: "Lexend Deca";
@@ -47,7 +45,6 @@ body {
   justify-content: center;
 }
 
-
 .text-input {
   display: flex;
   flex-direction: column;
@@ -57,7 +54,6 @@ body {
   justify-content: center; /* Center child elements vertically */
 }
 
-
 label {
   font-size: 30px;
   padding: 50px;
@@ -66,7 +62,7 @@ label {
 
 textarea {
   /* Your existing styles here */
-  width: 100%;
+  width: 750px;
   min-height: 50px;
   max-height: 400px;
   resize: vertical;
@@ -88,8 +84,7 @@ textarea::placeholder {
   line-height: 2; /* Add this line to vertically center the placeholder text */
 }
 
-
-textarea::placeholder{
+textarea::placeholder {
   color: #9994b8;
 }
 
@@ -118,7 +113,7 @@ textarea::placeholder{
   transition-duration: 0.4s;
   cursor: pointer;
   border-radius: 10px;
-  width: 100%;
+  width: 750px;
 }
 
 /* Add hover effect */
@@ -129,16 +124,23 @@ textarea::placeholder{
 
 .content {
   margin: 0 auto;
-  width: 400px;
+  width: 600px;
 }
 
-table, td, th {
+table,
+td,
+th {
   border: 1px solid #aaa;
+  color: #f4a3b4;
+  font-family: "Roboto Mono", sans-serif;
+  
 }
 
 table {
   border-collapse: collapse;
   width: 100%;
+  font-family: "Roboto Mono", sans-serif;
+  border-radius: 10px;
 }
 
 th {
@@ -169,4 +171,68 @@ td {
 .button:hover {
   background-color: white;
   color: #833c5e;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  border: 1px solid black;
+  border-radius: 10px;
+  z-index: 10;
+  background-color: #7c2142;
+  width: 800px;
+  height: 700px;
+  max-width: 80%;
+  overflow-y: auto;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+
+.modal-header .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-header .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-body {
+  padding: 10px 15px;
+  overflow-y: auto;
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
 }
