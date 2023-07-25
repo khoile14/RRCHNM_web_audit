@@ -68,7 +68,7 @@ class Bot:
             writer = csv.writer(file)
             writer.writerow(["Title", "Main Link", "Sub Link", "Status"])
             # main_links = [{'href': 'https://rrchnm.org/essays/an-introduction-to-u-s-history-research-online/', 'title': ''}]
-            # main_links = [{'href': 'https://rrchnm.org/essays/can-history-be-open-source-wikipedia-and-the-future-of-the-past/', 'title': ''}]
+            main_links = [{'href': 'https://rrchnm.org/essays/history-and-the-web-from-the-illustrated-newspaper-to-cyberspace-visual-technologies-and-interaction-in-the-nineteenth-and-twenty-first-centuries/', 'title': ''}]
             #main_links = [{'href': 'https://rrchnm.org/essays/scarcity-or-abundance-preserving-the-past-in-a-digital-era/', 'title': ''}]
             for link in main_links:
                 main_link_href = link["href"]
