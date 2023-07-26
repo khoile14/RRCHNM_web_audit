@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, jsonify
 import requests
-from requests_oathlib import OAuth1
 import urllib.parse
 
 app = Flask(__name__)
@@ -34,9 +33,6 @@ def index():
     else:
         return render_template('index.html')
 
-
 if __name__ == '__main__':
     app.run(debug=True)
 
-
-check_links(['https://www.linkedin.com', 'https://www.twitter.com'])
